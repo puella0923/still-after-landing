@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Still After â ê·¸ ì´íìë ë¨ììë ê°ì ì ìí´</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ââââââââââââââââââââââââââââââââââââââ
+       ëìì¸ ìì¤í
+    ââââââââââââââââââââââââââââââââââââââ */
+    :root {
+      --bg-main:       #0F1115;
+      --bg-sub:        #181A20;
+      --text-primary:  #F5F6F7;
+      --text-secondary:#A8ABB2;
+      --accent:        #E6CBA8;
+      --accent-soft:   #2A2D35;
+      --line:          #2A2D35;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Pretendard', 'Inter', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ââââââââââââââââââââââââââââââââââââââ
+       ê³µíµ ë ì´ìì
+    ââââââââââââââââââââââââââââââââââââââ */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    section {
+      padding: 120px 0;
+    }
+
+    /* ââââââââââââââââââââââââââââââââââââââ
+       ì¤í¬ë¡¤ ì ëë©ì´ì
+    ââââââââââââââââââââââââââââââââââââââ */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-up.delay-1 { transition-delay: 0.12s; }
+    .fade-up.delay-2 { transition-delay: 0.24s; }
+    .fade-up.delay-3 { transition-delay: 0.36s; }
+    .fade-up.delay-4 { transition-delay: 0.48s; }
+
+    /* ââââââââââââââââââââââââââââââââââââââ
+       íì´í¬ê·¸ëí¼
+    ââââââââââââââââââââââââââââââââââââââ */
+    h1 { font-size: 40px; font-weight: 500; line-height: 1.25; letter-spacing: -0.5px; }
+    h2 { font-size: 28px; font-weight: 400; line-height: 1.45; letter-spacing: -0.3px; }
+    h3 { font-size: 20px; font-weight: 500; line-height: 1.4; }
+    p  { font-size: 16px; color: var(--text-secondary); line-height: 1.8; }
+
+    /* ââââââââââââââââââââââââââââââââââââââ
+       ë²í¼
+    ââââââââââââââââââââââââââââââââââââââ */
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #0F1115;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 14px 28px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      letter-spacing: 0.1px;
+    }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); opacity: 1; }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--line);
+      font-size: 14px;
+      padding: 12px 24px;
+    }
+    .btn-ghost:hover { border-color: var(--accent-soft); color: var(--text-primary); }
+
+    /* ââââââââââââââââââââââââââââââââââââââ
+       ë¤ë¹ê²ì´ì
+    ââââââââââââââââââââââââââââââââââââââ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 32px;
+      background: rgba(15, 17, 21, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(42, 45, 53, 0.4);
+    }
+
+    .nav-logo {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-primary);
+      letter-spacing: 0.5px;
+    }
+
+    /* ââââââââââââââââââââââââââââââââââââââ
+       â  Hero
+    ââââââââââââââââââââââââââââââââââââââ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0;
+    }
+
+    #hero .container {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+
+    #hero h1 { color: var(--text-primary); }
+
+    .hero-subtitle {
+      margin-top: 16px;
+      font-size: 20px;
+      color: var(--accent);
+      font-weight: 300;
+      letter-spacing: 0.1px;
+    }
+
+    .hero-desc {
+      margin-top: 24px;
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      margin-top: 44px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-scroll-hint {
+      margin-top: 80px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .scroll-line {
+      width: 32px;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .scroll-text {
+      font-size: 12px;
+      color: #555A66;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ââââââââââââââââââââââââââââââââââââââ
+       êµ¬ë¶ì 
+    ââââââââââââââââââââââââââââââââââââââ */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--line);
+    }
+
+    /* ââââââââââââââââââââââââââââââââââââââ
+       â¡ ê³µê° ì¹ì
+    ââââââââââââââââââââââââââââââââââââââ */
+    #empathy {
+      background: var(--bg-sub);
+    }
+
+    #empathy h2 {
+      color: var(--text-primary);
+      margin-bottom: 28px;
+    }
+
+    #empathy p {
+      font-size: 17px;
+      max-width: 520px;
+    }
+
+    /* ââââââââââââââââââââââââââââââââââââââ
+       â¢ 3ë¨ê³
+    ââââââââââââââââââââââââââââââââââââââ */
+    #steps h2 {
+      margin-bottom: 16px;
+    }
+
+    .steps-subtitle {
+      color: var(--text-secondary);
+      margin-bottom: 56px;
+      font-size: 16px;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .step-card {
+      background: var(--bg-sub);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .step-card:hover::before { opacity: 0.6; }
+
+    .step-number {
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      font-weight: 400;
+    }
+
+    .step-card h3 {
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .step-card p {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .step-arrow {
+      display: flex;
+      justify-content: center;
+      color: var(--line);
+      font-size: 20px;
+      padding: 4px 0;
+      user-select: none;
+    }
+
+    /* ââââââââââââââââââââââââââââââââââââââ
+       â£ Human / Pet
+    ââââââââââââââââââââââââââââââââââââââ */
+    #care {
+      background: var(--bg-sub);
+    }
+
+    #care h2 {
+      margin-bottom: 48px;
+    }
+
+    .care-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .care-card {
+      background: var(--bg-main);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 28px 24px;
+    }
+
+    .care-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .care-card h3 {
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .care-card p { font-size: 14px; }
+
+    /* ââââââââââââââââââââââââââââââââââââââ
+       â¤ ê°ê²©
+    ââââââââââââââââââââââââââââââââââââââ */
+    #pricing h2 {
+      margin-bottom: 12px;
+    }
+
+    .pricing-subtitle {
+      color: var(--text-secondary);
+      margin-bottom: 52px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .pricing-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 32px 24px;
+      background: var(--bg-sub);
+    }
+
+    .pricing-card.highlight {
+      border-color: var(--accent);
+      background: linear-gradient(145deg, #1C1A17, #181A20);
+      position: relative;
+    }
+
+    .pricing-badge {
+      display: inline-block;
+      font-size: 11px;
+      background: var(--accent);
+      color: #0F1115;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    .pricing-card h3 {
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .pricing-card p { font-size: 14px; margin-bottom: 20px; }
+
+    .pricing-price {
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: -0.5px;
+    }
+
+    .pricing-free-label {
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    /* ââââââââââââââââââââââââââââââââââââââ
+       â¥ ì°¨ë³í
+    ââââââââââââââââââââââââââââââââââââââ */
+    #diff {
+      background: var(--bg-sub);
+    }
+
+    #diff h2 {
+      margin-bottom: 28px;
+    }
+
+    .diff-quote {
+      border-left: 2px solid var(--accent);
+      padding: 20px 28px;
+      margin-top: 40px;
+      background: rgba(230, 203, 168, 0.04);
+      border-radius: 0 10px 10px 0;
+    }
+
+    .diff-quote p {
+      font-size: 17px;
+      color: var(--text-primary);
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    /* ââââââââââââââââââââââââââââââââââââââ
+       â¦ CTA
+    ââââââââââââââââââââââââââââââââââââââ */
+    #cta {
+      text-align: center;
+      padding: 140px 0;
+    }
+
+    #cta h2 {
+      font-size: 32px;
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+
+    #cta .cta-sub {
+      color: var(--text-secondary);
+      margin-bottom: 44px;
+      font-size: 16px;
+    }
+
+    .cta-notice {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #555A66;
+    }
+
+    /* ââââââââââââââââââââââââââââââââââââââ
+       í¸í°
+    ââââââââââââââââââââââââââââââââââââââ */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 40px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo { font-size: 14px; font-weight: 500; color: var(--text-secondary); }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: #555A66;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text-secondary); }
+
+    .footer-copy { font-size: 12px; color: #3C404A; width: 100%; text-align: right; }
+
+    /* ââââââââââââââââââââââââââââââââââââââ
+       ë°ìí
+    ââââââââââââââââââââââââââââââââââââââ */
+    @media (max-width: 600px) {
+      h1 { font-size: 30px; }
+      h2 { font-size: 22px; }
+      #hero h1 { font-size: 32px; }
+      .care-grid, .pricing-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      #cta h2 { font-size: 24px; }
+      nav { padding: 16px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ââ ë¤ë¹ê²ì´ì ââ -->
+  <nav>
+    <span class="nav-logo">Still After</span>
+    <a href="#" class="btn btn-ghost" id="nav-cta">ì§ê¸ ììíê¸°</a>
+  </nav>
+
+
+  <!-- ââ â  Hero ââ -->
+  <section id="hero">
+    <div class="container">
+      <span class="hero-eyebrow fade-up">Grief Care Â· AI</span>
+
+      <h1 class="fade-up delay-1">
+        Still After
+      </h1>
+
+      <p class="hero-subtitle fade-up delay-2">
+        ê·¸ ì´íìë ë¨ììë ê°ì ì ìí´
+      </p>
+
+      <p class="hero-desc fade-up delay-3">
+        ê·¸ë¦¬ìì ë¶ì¡ë ê²ì´ ìëë¼,<br />
+        ì²ì²í ëì ì ìëë¡ ëìµëë¤.
+      </p>
+
+      <div class="hero-actions fade-up delay-4">
+        <a href="#" class="btn" id="hero-cta">ì ì ëíí´ë³´ê¸°</a>
+      </div>
+
+      <div class="hero-scroll-hint fade-up delay-4">
+        <div class="scroll-line"></div>
+        <span class="scroll-text">Scroll</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ââ â¡ ê³µê° ââ -->
+  <section id="empathy">
+    <div class="container">
+      <h2 class="fade-up">
+        ëíë ëë¬ì§ë§,<br />
+        ë§ìì ìì§ ë¨ì ììµëë¤.
+      </h2>
+      <p class="fade-up delay-1" style="margin-top: 24px; font-size: 17px; max-width: 480px;">
+        ì íì§ ëª»í ë§ì´,<br />
+        ìì§ ìì ë¨ì ìì§ ìëì?<br /><br />
+        ìì¤ì ìê°ì´ í´ê²°íë¤ê³  íì§ë§,<br />
+        ì´ë¤ ê°ì ì ê·¸ë¥ ëë©´ ë ê¹ì´ì§ëë¤.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ââ â¢ 3ë¨ê³ ââ -->
+  <section id="steps">
+    <div class="container">
+      <h2 class="fade-up">ê°ì  íë³µì ì¤ê³í©ëë¤</h2>
+      <p class="steps-subtitle fade-up delay-1">ì¸ ë¨ê³ë¡, ì²ì²í</p>
+
+      <div class="steps-grid">
+
+        <div class="step-card fade-up delay-1">
+          <div class="step-number">Step 01</div>
+          <h3>ì¬ì°</h3>
+          <p>ê·¸ëì²ë¼, ì´ì¼ê¸°í©ëë¤.<br />ì¤ì  ë§í¬ì ì¨ê¸°ë¥¼ ë´ì, ê¸°ìµ ììì ëíë¥¼ ì´ì´ê°ëë¤.</p>
+        </div>
+
+        <div class="step-arrow fade-up delay-2">â</div>
+
+        <div class="step-card fade-up delay-2">
+          <div class="step-number">Step 02</div>
+          <h3>ìì </h3>
+          <p>ë¹ì ì ë§ìì ì ë¦¬í©ëë¤.<br />ê°ì ì êº¼ë´ê³ , ì´ë¦ ë¶ì´ê³ , ì¡°ê¸ì© ê°ë²¼ìì§ëë¤.</p>
+        </div>
+
+        <div class="step-arrow fade-up delay-3">â</div>
+
+        <div class="step-card fade-up delay-3">
+          <div class="step-number">Step 03</div>
+          <h3>ì´ë³</h3>
+          <p>ëì ì¤ë¹ë¥¼ í¨ê»í©ëë¤.<br />ë§ì§ë§ í¸ì§ë¥¼ ì°ê³ , ì¬ë¦¬ì  ì¢ê²°ì ê²½íí©ëë¤.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ââ â£ Human / Pet ââ -->
+  <section id="care">
+    <div class="container">
+      <h2 class="fade-up">
+        ì¬ëì´ë , ë°ë ¤ëë¬¼ì´ë <br />
+        ë¨ê²¨ì§ ê°ì ì ê°ìµëë¤
+      </h2>
+
+      <div class="care-grid">
+        <div class="care-card fade-up delay-1">
+          <div class="care-icon">ð¤</div>
+          <h3>Human</h3>
+          <p>ì¹´ì¹´ì¤í¡ ëíë¥¼ íµí´ ë§í¬ì ì¨ê¸°ë¥¼ ë´ìëëë¤. ê¸°ìµ ììì ëíë¥¼ ì´ì´ê°ëë¤.</p>
+        </div>
+        <div class="care-card fade-up delay-2">
+          <div class="care-icon">ð¾</div>
+          <h3>Pet</h3>
+          <p>ë§ì´ ìì´ë, ê¸°ìµì ë¨ì ììµëë¤. í¨ê»íë ìê°ë¤ì ì¡°ì¬ì¤ë½ê² ê°ì§í©ëë¤.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ââ â¤ ê°ê²© ââ -->
+  <section id="pricing">
+    <div class="container">
+      <h2 class="fade-up">ì²ìì ê°ë³ê² ììí  ì ììµëë¤</h2>
+      <p class="pricing-subtitle fade-up delay-1">ì¤ë¹ê° ëìì ë, ê³ìí  ì ìì´ì</p>
+
+      <div class="pricing-grid">
+
+        <div class="pricing-card fade-up delay-1">
+          <h3>ë¬´ë£ ì²´í</h3>
+          <p>ê¸°ìµ ë§ë¤ê¸°ë¶í°,<br />10ë²ì ëíë¥¼ ê²½ííì¸ì.</p>
+          <span class="pricing-free-label">ë¬´ë£</span>
+        </div>
+
+        <div class="pricing-card highlight fade-up delay-2">
+          <span class="pricing-badge">ì¶ì²</span>
+          <h3>ì ì²´ ì¬ì </h3>
+          <p>ì¬ì° â ìì  â ì´ë³<br />ê°ì  íë³µì ì  ê³¼ì ì í¨ê»í©ëë¤.</p>
+          <span class="pricing-price">19,900ì</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ââ â¥ ì°¨ë³í ââ -->
+  <section id="diff">
+    <div class="container">
+      <h2 class="fade-up">ì°ë¦¬ë ê³ì ë¨¸ë¬¼ê² íì§ ììµëë¤</h2>
+      <p class="fade-up delay-1" style="margin-top: 20px; font-size: 17px; max-width: 500px;">
+        ë¹ì ì´ ìì¼ë¡ ëìê° ì ìëë¡,<br />
+        ëíì ëê¹ì§ ì¤ê³íìµëë¤.
+      </p>
+
+      <div class="diff-quote fade-up delay-2">
+        <p>
+          "ì°ë¦¬ë ì¬ëì ë³µìíì§ ììµëë¤.<br />
+          ë¨ê²¨ì§ ì¬ëì´ ë¤ì ì´ìê° ì ìëë¡ ëìµëë¤."
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ââ â¦ CTA ââ -->
+  <section id="cta">
+    <div class="container">
+      <h2 class="fade-up">ì¤ë¹ê° ëìì ë, ììíì¸ì</h2>
+      <p class="cta-sub fade-up delay-1">
+        ê°ìíì§ ììµëë¤. ë¹ì ì ìëë¡.
+      </p>
+      <a href="#" class="btn fade-up delay-2" id="cta-main">ì§ê¸ ììíê¸°</a>
+      <p class="cta-notice fade-up delay-3">ì²ì 10ë²ì ëíë ë¬´ë£ìì</p>
+    </div>
+  </section>
+
+
+  <!-- ââ í¸í° ââ -->
+  <footer>
+    <span class="footer-logo">Still After</span>
+    <div class="footer-links">
+      <a href="#">ê°ì¸ì ë³´ì²ë¦¬ë°©ì¹¨</a>
+      <a href="#">ì´ì©ì½ê´</a>
+      <a href="#">ê³ ê°ì¼í°</a>
+    </div>
+    <p class="footer-copy">Â© 2026 Still After. All rights reserved.</p>
+  </footer>
+
+
+  <script>
+    // ââ ì± URL ì¤ì  (ì¤ì  ë°°í¬ ì ë³ê²½) ââ
+    const APP_LOGIN_URL = 'http://localhost:8082/Login'
+
+    document.querySelectorAll('#nav-cta, #hero-cta, #cta-main').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault()
+        window.location.href = APP_LOGIN_URL
+      })
+    })
+
+    // ââ ì¤í¬ë¡¤ íì´ëì¸ (IntersectionObserver) ââ
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    )
+
+    document.querySelectorAll('.fade-up').forEach((el) => {
+      observer.observe(el)
+    })
+
+    // Heroë íì´ì§ ë¡ë ì ë°ë¡ íì
+    window.addEventListener('load', () => {
+      document.querySelectorAll('#hero .fade-up').forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), i * 140)
+      })
+    })
+  </script>
+
+</body>
+</html>
