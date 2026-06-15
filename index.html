@@ -3,47 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ① Search Console 소유권 인증 -->
-  <meta name="google-site-verification" content="42HCXffGpWRJRMDEoND2Qnu_9lqmGdbwBZygPF_jCvE" />
-    <link rel="canonical" href="https://stillafter.com/" />
-
-  <!-- ② 기본 메타태그 -->
-  <meta name="description" content="사랑하는 사람을 떠나보낸 후, 못 다한 말을 전하는 공간. 천천히, 당신의 속도로." />
-
-  <!-- ③ OG 태그 (카카오톡 / SNS 공유 미리보기) -->
-  <meta property="og:title" content="stillafter — 아직 하고 싶은 말이 있다면" />
-  <meta property="og:description" content="사랑하는 사람을 떠나보낸 후, 못 다한 말을 전하는 공간." />
-  <meta property="og:image" content="https://stillafter.com/og-image.jpg" />
-  <meta property="og:url" content="https://stillafter.com" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="ko_KR" />
-
-  <!-- ④ 트위터 카드 -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="stillafter — 아직 하고 싶은 말이 있다면" />
-  <meta name="twitter:description" content="사랑하는 사람을 떠나보낸 후, 못 다한 말을 전하는 공간." />
-  <meta name="twitter:image" content="https://stillafter.com/og-image.jpg" />
-
-  <!-- ⑤ GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q4KY5HKLRK"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-Q4KY5HKLRK');
-  </script>
-
-  <!-- ⑥ Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "wbn3kcnrth");
-  </script>
-
   <title>Still After — 아직 전하지 못한 말이 있다면</title>
+
+  <!-- SEO: 구글 색인을 위한 canonical 태그 -->
+  <link rel="canonical" href="https://stillafter.com/" />
+
+  <!-- SEO: 검색 엔진 설명 -->
+  <meta name="description" content="아직 전하지 못한 말이 있다면. 상실 후 감정을 안전하게 이어가고, 결국 떠나보낼 수 있도록 돕는 AI 기반 감정 케어 서비스." />
+  <meta name="keywords" content="상실, 그리움, 이별, 감정케어, 펫로스, 애도, 심리치유, stillafter" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- OG 태그: 카카오톡/SNS 공유 시 미리보기 -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://stillafter.com/" />
+  <meta property="og:title" content="Still After — 아직 전하지 못한 말이 있다면" />
+  <meta property="og:description" content="상실 후 감정을 안전하게 이어가고, 결국 떠나보낼 수 있도록 돕는 AI 기반 감정 케어 서비스. 베타 테스터 모집 중." />
+  <meta property="og:image" content="https://puella0923.github.io/still-after-landing/og-image.png" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:site_name" content="Still After" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Still After — 아직 전하지 못한 말이 있다면" />
+  <meta name="twitter:description" content="상실 후 감정을 안전하게 이어가고, 결국 떠나보낼 수 있도록 돕는 AI 기반 감정 케어 서비스." />
+  <meta name="twitter:image" content="https://puella0923.github.io/still-after-landing/og-image.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
@@ -449,7 +433,7 @@
 <!-- ── Nav ── -->
 <nav>
   <span class="nav-logo">Still After</span>
-  <a href="#" class="btn btn-ghost" id="nav-cta">지금 시작하기</a>
+  <a href="#" class="btn btn-ghost" id="nav-cta">무료로 시작하기</a>
 </nav>
 
 
@@ -476,7 +460,7 @@
     </p>
 
     <div class="hero-actions fade-up d4">
-      <a href="#" class="btn" id="hero-cta">조심스럽게 시작해보기</a>
+      <a href="#" class="btn" id="hero-cta">무료로 시작해보기 →</a>
     </div>
 
     <div class="hero-scroll fade-up d4">
@@ -693,7 +677,7 @@
         </div>
         <div class="row">
           <div class="mini-ava">엄</div>
-          <div class="bubble ai">나도 사랑해. 우리 딸, 앞으로 잘 살아야 해. 엄마가 괜찮아.</div>
+          <div class="bubble ai">나도 사랑해. 우리 딸, 앞으로 잘 살아야 해. 엄마는 괜찮아.</div>
         </div>
         <!-- 이별 보조 메시지 -->
         <div class="msg-guide">
@@ -807,7 +791,7 @@
 
     <h2 class="fade-up">준비가 되었을 때,<br>시작하세요</h2>
     <p class="cta-sub fade-up d1">강요하지 않습니다. 당신의 속도로.</p>
-    <a href="#" class="btn fade-up d2" id="cta-main">지금 시작하기</a>
+    <a href="#" class="btn fade-up d2" id="cta-main">무료로 시작해보기 →</a>
     <p class="cta-note fade-up d3">처음 10번의 대화는 무료예요</p>
 
   </div>
@@ -828,7 +812,7 @@
 
 <script>
   // ── 앱 URL ──
-  const APP_URL = 'https://dist-alpha-six-89.vercel.app/Login'
+  const APP_URL = 'https://stillafter.com/EmailAuth'
   document.querySelectorAll('#nav-cta, #hero-cta, #cta-main').forEach(el => {
     el.addEventListener('click', e => { e.preventDefault(); window.location.href = APP_URL })
   })
